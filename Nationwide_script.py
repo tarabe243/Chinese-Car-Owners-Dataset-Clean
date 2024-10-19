@@ -21,7 +21,7 @@ os.makedirs(garbage_dir, exist_ok=True)
 os.makedirs(clean_dir, exist_ok=True)
 
 # Chunk size for processing large files
-chunk_size = 100000
+chunk_size = 250000
 
 # Custom list of headers to replace the existing headers
 new_headers = [
