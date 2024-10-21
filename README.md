@@ -1,6 +1,6 @@
-#Data Cleaning and Processing 
+# Data Cleaning and Processing Script
 
-This Python script is designed to clean and process large CSV datasets efficiently. It performs various data cleaning operations, handles data validation, and uses a chunking approach to manage large files effectively.
+This Python script is designed for cleaning and processing large CSV datasets. It performs various data cleaning operations, validation checks, and handles large datasets efficiently through chunking.
 
 ## Features
 
@@ -12,7 +12,7 @@ This Python script is designed to clean and process large CSV datasets efficient
    - Standardizes data formats
 
 2. **Data Validation**
-   - Includes example validation (e.g., email addresses using regex)
+   - Validates specific fields (e.g., email addresses) using regex
 
 3. **Chunking**
    - Processes large CSV files in smaller chunks to manage memory efficiently
@@ -36,11 +36,10 @@ This Python script is designed to clean and process large CSV datasets efficient
 
 1. Place your input CSV file in the same directory as the script.
 2. Update the `input_file` variable with your CSV filename.
-3. Adjust the `new_headers` list to match your dataset's structure.
-4. Run the script:
+3. Run the script:
 
    ```
-   python data_cleaning_script.py
+   python data_cleaning_processing_script.py
    ```
 
 ## Input
@@ -68,7 +67,7 @@ The script generates two types of output files:
    - Converts data types
    - Handles outliers
    - Standardizes data
-   - Performs data validation (e.g., email addresses)
+   - Performs specific validations (e.g., email addresses)
 3. Separates clean and garbage data
 4. Saves intermediate results for each chunk
 5. Concatenates all processed chunks
@@ -83,18 +82,58 @@ The script logs its activities to `data_processing.log`, including:
 
 ## Data Fields
 
-The script is designed to work with a variety of data fields. The current implementation includes placeholders for the following types of data:
+The script is currently set up to handle the following fields:
 
-- Identification information (e.g., ID numbers, names)
-- Personal information (e.g., gender, date of birth, marital status)
-- Contact information (e.g., phone numbers, email addresses)
-- Location data (e.g., address, city, province, postal code)
-- Professional information (e.g., industry, education, salary)
+- VIN
+- Name
+- ID Number
+- Gender
+- Mobile Phone
+- Email
+- Province
+- City
+- Address
+- Postal Code
+- Date of Birth
+- Industry
+- Monthly Salary
+- Marital Status
+- Education
+- Brand
+- Car Series
+- Car Model
+- Configuration
+- Color
+- Engine Number
 
-Note: The exact fields can be customized by modifying the `new_headers` list in the script.
+Note: These fields can be easily modified to suit different datasets by updating the `new_headers` list in the script.
 
 ## Customization
 
 - Adjust the `chunk_size` variable to optimize performance based on your system's memory.
 - Modify the `new_headers` list to match your dataset's structure.
-- A
+- Add or modify data cleaning and validation steps in the `process_chunk` function as needed.
+- Update the data type conversions, outlier handling, and standardization steps to fit your specific data requirements.
+
+## Important Considerations
+
+- Ensure you have sufficient disk space to store intermediate and final output files.
+- The script assumes certain column names (e.g., 'email', 'salary'). Adjust these according to your dataset's structure.
+- Back up your original data before running the script.
+- Review and modify the validation and cleaning steps to ensure they're appropriate for your specific dataset.
+
+## Note on Large Datasets
+
+This script is designed to handle large datasets by processing them in chunks. This approach helps manage memory usage efficiently, allowing for the processing of datasets that might not fit into memory all at once.
+
+## Extensibility
+
+The script can be easily extended to include additional data cleaning and processing steps. Some possibilities include:
+- Implementing more sophisticated outlier detection methods
+- Adding data normalization or scaling steps
+- Incorporating feature engineering
+- Implementing more complex data validation rules
+
+## Error Handling
+
+The script includes basic error handling and logging. For production use, you may want to enhance the error handling to deal with specific issues that could arise with your data.
